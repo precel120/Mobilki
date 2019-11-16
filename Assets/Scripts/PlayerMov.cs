@@ -1,10 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMov : MonoBehaviour
 {
     public float Speed;
+    public float JumpHeight;
     private bool faceRight;
     public Joystick joystick;
     private Rigidbody2D rigidbody2D;
@@ -18,15 +19,20 @@ public class PlayerMov : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        float horizontal = joystick.Horizontal;
+        float horizontal = joystick.Horizontal * Speed;
         Move(horizontal);
         Flip(horizontal);
+        if (CrossPlatformInputManager.GetButtonDown("Jump")){
+            rigidbody2D.AddForce(Vector2.up * 700f);
+        }
     }
+
 
     void Move(float horizontal)
     {
         rigidbody2D.velocity = new Vector2(horizontal * Speed, rigidbody2D.velocity.y);
     }
+
 
     void Flip(float horizontal)
     {
