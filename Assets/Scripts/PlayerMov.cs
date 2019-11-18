@@ -5,7 +5,6 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMov : MonoBehaviour
 {
     public float Speed;
-    public float JumpHeight;
     private bool faceRight;
     public Joystick joystick;
     private Rigidbody2D rigidbody2D;
@@ -23,7 +22,7 @@ public class PlayerMov : MonoBehaviour
         Move(horizontal);
         Flip(horizontal);
         if (CrossPlatformInputManager.GetButtonDown("Jump")){
-            rigidbody2D.AddForce(Vector2.up * 700f);
+            rigidbody2D.AddForce(Vector2.up * 1500f);
         }
     }
 

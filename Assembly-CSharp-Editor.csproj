@@ -110,7 +110,6 @@
     <Compile Include="Assets\Imports\Joystick Pack\Scripts\Editor\FloatingJoystickEditor.cs" />
     <Compile Include="Assets\Imports\Joystick Pack\Scripts\Editor\JoystickEditor.cs" />
     <Compile Include="Assets\Imports\Joystick Pack\Scripts\Editor\VariableJoystickEditor.cs" />
-    <Compile Include="Assets\Imports\PennyPixel_2DTilemapProject\Assets\Add-Ons\2D Extras\Tiles\Rule Tile\Scripts\Editor\RuleTileEditor.cs" />
     <Compile Include="Assets\Imports\Standard Assets\Editor\CrossPlatformInput\CrossPlatformInputInitialize.cs" />
     <Reference Include="UnityEditor.TestRunner">
       <HintPath>C:/Users/Maciej Pracucik/Desktop/Programy/Repo/Mobilki/Library/ScriptAssemblies/UnityEditor.TestRunner.dll</HintPath>
