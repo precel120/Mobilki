@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 13312, guid: 0000000000000000e000000000000000, type: 0}
   m_Name: tailmap8
   m_EditorClassIdentifier: 
-  m_Sprite: {fileID: 21300000, guid: 7697676967e11c34eb630e30b4ad5886, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 46871441134d47340853620b9f82f891, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_Transform:
     e00: 1
