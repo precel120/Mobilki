@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 7392978350035783302}
   - component: {fileID: 6365077324263609576}
   - component: {fileID: 79226089}
+  - component: {fileID: 1768967766}
   m_Layer: 0
   m_Name: Atom
   m_TagString: Enemy
@@ -148,7 +149,8 @@ MonoBehaviour:
   stoppingDistance: 5
   retreatDistance: 3
   startTimeBtwShots: 2
-  projectile: {fileID: 0}
+  projectile: {fileID: 7945020176538330757, guid: e9ea2584d7c04ca40b73a12ef9d9c85b,
+    type: 3}
 --- !u!60 &79226089
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -366,3 +368,22 @@ PolygonCollider2D:
       - {x: 0.39999998, y: 1.9599999}
       - {x: 0.42999998, y: 1.74}
       - {x: 0.22, y: 1.66}
+--- !u!95 &1768967766
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6648917157526212284}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 4a726ce614d5d7d4380728de5d40c801, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

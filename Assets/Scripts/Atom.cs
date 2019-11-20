@@ -14,6 +14,7 @@ public class Atom : Enemy
     public GameObject projectile;
     private Transform player;
     private BoxCollider2D head;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -22,6 +23,7 @@ public class Atom : Enemy
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
         head = gameObject.GetComponent<BoxCollider2D>();
+        animator = gameObject.GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -41,8 +43,9 @@ public class Atom : Enemy
 
         if(timeBtwShots <= 0)
         {
-            Instantiate(projectile, transform.position, Quaternion.identity);
+            StartCoroutine(shooting());
             timeBtwShots = startTimeBtwShots;
+
         } else {
             timeBtwShots -= Time.deltaTime;
         }
@@ -61,5 +64,13 @@ public class Atom : Enemy
         {
             takeDamage(15);
         }
+    }
+    IEnumerator shooting()
+    {
+        animator.SetBool("isShooting", true);
+        Instantiate(projectile, transform.position, Quaternion.identity);
+        yield return new WaitForSeconds(0.02f);
+        animator.SetBool("isShooting", false);
+        
     }
 }
