@@ -5,13 +5,17 @@ using UnityStandardAssets.CrossPlatformInput;
 public class PlayerMov : MonoBehaviour
 {
     public float Speed;
+    public bool canJump;
+    public float JumpHeight;
     private bool faceRight;
+    private int jumpCounter;
     public Joystick joystick;
     private Rigidbody2D rigidbody2D;
     // Start is called before the first frame update
     void Start()
     {
         faceRight = true;
+        canJump = true;
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
     }
 
@@ -21,8 +25,8 @@ public class PlayerMov : MonoBehaviour
         float horizontal = joystick.Horizontal * Speed;
         Move(horizontal);
         Flip(horizontal);
-        if (CrossPlatformInputManager.GetButtonDown("Jump")){
-            rigidbody2D.AddForce(Vector2.up * 1500f);
+        if (CrossPlatformInputManager.GetButtonDown("Jump") && canJump){
+            Jump();
         }
     }
 
@@ -41,5 +45,10 @@ public class PlayerMov : MonoBehaviour
 
             transform.Rotate(0f, 180f, 0f);
         }
+    }
+
+    void Jump()
+    {
+        rigidbody2D.AddForce(Vector2.up * JumpHeight);
     }
 }

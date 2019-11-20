@@ -45,17 +45,20 @@ public class Atom : Enemy
         } else {
             timeBtwShots -= Time.deltaTime;
         }
-
-        if (head.IsTouchingLayers(LayerMask.GetMask("Player")))
-        {
-            takeDamage(15);
-        }
     }
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
             collision.gameObject.GetComponent<PlayerHealth>().takeDamage(10);
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            takeDamage(15);
         }
     }
 }

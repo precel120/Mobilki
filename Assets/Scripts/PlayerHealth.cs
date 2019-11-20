@@ -1,9 +1,11 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerHealth : MonoBehaviour
 {
+    public Text healthUI;
     private bool isInvincible;
     private int health;
     public int Health { get { return health; } set { health = value; } }
@@ -20,7 +22,7 @@ public class PlayerHealth : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        healthUI.text = health + "/30";
     }
 
     public void takeDamage(int amount)

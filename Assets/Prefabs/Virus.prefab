@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 6533119545900964740}
   - component: {fileID: 952104214795691515}
   - component: {fileID: 6750346828924869022}
+  - component: {fileID: 775717119}
   m_Layer: 0
   m_Name: Virus
   m_TagString: Enemy
@@ -28,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 4604260096632847110}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 11.892586, y: -9.5637, z: 0}
-  m_LocalScale: {x: 0.45, y: 0.45, z: 1}
+  m_LocalScale: {x: 0.4, y: 0.4, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -95,7 +96,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.0674243, y: -0.13484526}
+  m_Offset: {x: 0.020223022, y: -0.7753025}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -106,7 +107,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 4.5309076, y: 4.5309105}
+  m_Size: {x: 4.1532974, y: 2.8409226}
   m_EdgeRadius: 0
 --- !u!114 &6750346828924869022
 MonoBehaviour:
@@ -121,3 +122,32 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startHealth: 15
+--- !u!60 &775717119
+PolygonCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4604260096632847110}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 5.34, y: 5.34}
+    newSize: {x: 5.34, y: 5.34}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  m_Points:
+    m_Paths:
+    - - {x: 1.47964, y: 1.1401772}
+      - {x: 0.5598593, y: 1.8719465}
+      - {x: -0.631752, y: 1.8855953}
+      - {x: -1.4314365, y: 1.1513686}
