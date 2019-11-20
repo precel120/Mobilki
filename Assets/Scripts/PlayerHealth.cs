@@ -7,6 +7,11 @@ public class PlayerHealth : MonoBehaviour
 {
     public Text healthUI;
     private bool isInvincible;
+    public Text endGameText;
+    public ParticleSystem invincibility;
+    public bool isDead = false;
+    private SpriteRenderer playerVisibility;
+
     private int health;
     public int Health { get { return health; } set { health = value; } }
 
@@ -14,6 +19,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerVisibility = gameObject.GetComponent<SpriteRenderer>();
         Health = 30;
         isInvincible = false;
         restartButton.SetActive(false);
@@ -32,10 +38,21 @@ public class PlayerHealth : MonoBehaviour
             Health -= amount;
             if (health <= 0)
             {
-                Destroy(gameObject);
-                restartButton.SetActive(true);
+                isDead = true;
+                StartCoroutine(gameOver());
             }
-                
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if(collision.gameObject.tag == "EndGame")
+        {
+            StartCoroutine(gameWon());
+        }
+        if(collision.gameObject.tag == "GameOver")
+        {
+            StartCoroutine(gameOver());
         }
     }
 
@@ -52,8 +69,31 @@ public class PlayerHealth : MonoBehaviour
 
     private IEnumerator invincible()
     {
+        invincibility.Play();
         isInvincible = true;
         yield return new WaitForSeconds(4f);
         isInvincible = false;
+        invincibility.Stop();
     }
+
+    private IEnumerator gameOver()
+    {
+        playerVisibility.enabled = false;
+        yield return new WaitForSeconds(1f);
+        endGameText.text = "Niestety, nie dotarłeś do końca studiów";
+        yield return new WaitForSeconds(2f);
+        endGameText.text = "Czy chcesz powtórzyć kolejną edycję?";
+        restartButton.SetActive(true);
+    }
+
+    private IEnumerator gameWon()
+    {
+        yield return new WaitForSeconds(0.5f);
+        endGameText.text = "Gratulacje! Udało Ci się zabić i skończyć ten jebany żywot";
+        yield return new WaitForSeconds(2f);
+        Destroy(gameObject);
+        endGameText.text = "Chcesz dostać depresji jeszcze raz?";
+        restartButton.SetActive(true);
+    }
+
 }

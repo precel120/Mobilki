@@ -50,16 +50,25 @@ public class Virus : Enemy
             yield return new WaitForSeconds(Random.Range(minWaitTime,maxWaitTime));
             if (Health <= 0) break;
 
+            float randDir = Random.Range(-150, 150);
+            if(randDir > 0)
+            {
+                randDir += 150;
+            }else
+            {
+                randDir -= 150;
+            }
+
             if (movingRight)
             {
                 transform.Rotate(0f, 180f, 0f);
-                rigidbody.AddForce(new Vector2(Random.Range(150, 300), 700));
+                rigidbody.AddForce(new Vector2(randDir, 700));
                 movingRight = false;
             }
             else
             {
                 transform.Rotate(0f, 180f, 0f);
-                rigidbody.AddForce(new Vector2(Random.Range(-150, -300), 700));
+                rigidbody.AddForce(new Vector2(randDir, 700));
                 movingRight = true;
             }
         }

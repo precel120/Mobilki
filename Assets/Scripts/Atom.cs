@@ -29,25 +29,37 @@ public class Atom : Enemy
     // Update is called once per frame
     void Update()
     {
-        if(Vector2.Distance(transform.position, player.position) > stoppingDistance)
+        if (!player.GetComponent<PlayerHealth>().isDead)
         {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
-        }
-        else if(Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
-        {
-            transform.position = this.transform.position;
-        }else if(Vector2.Distance(transform.position, player.position) < retreatDistance)
-        {
-            transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
-        }
+            if (Vector2.Distance(transform.position, player.position) < 35.0f)
+            {
+                if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, speed * Time.deltaTime);
+                }
+                else if (Vector2.Distance(transform.position, player.position) < stoppingDistance && Vector2.Distance(transform.position, player.position) > retreatDistance)
+                {
+                    transform.position = this.transform.position;
+                }
+                else if (Vector2.Distance(transform.position, player.position) < retreatDistance)
+                {
+                    transform.position = Vector2.MoveTowards(transform.position, player.position, -speed * Time.deltaTime);
+                }
 
-        if(timeBtwShots <= 0)
-        {
-            StartCoroutine(shooting());
-            timeBtwShots = startTimeBtwShots;
+                if (timeBtwShots <= 0 && Vector2.Distance(transform.position, player.position) < 10.0f)
+                {
+                    StartCoroutine(shooting());
+                    timeBtwShots = startTimeBtwShots;
 
-        } else {
-            timeBtwShots -= Time.deltaTime;
+                }
+                else
+                {
+                    timeBtwShots -= Time.deltaTime;
+                }
+            }
+        }else
+        {
+            enabled = false;
         }
     }
     private void OnCollisionEnter2D(Collision2D collision)
@@ -63,13 +75,18 @@ public class Atom : Enemy
         if (collision.gameObject.tag == "Player")
         {
             takeDamage(15);
+            collision.gameObject.GetComponent<PlayerMov>().canJump = false;
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1400));
+            collision.gameObject.GetComponent<PlayerMov>().canJump = true;
         }
     }
     IEnumerator shooting()
     {
         animator.SetBool("isShooting", true);
-        Instantiate(projectile, transform.position, Quaternion.identity);
-        yield return new WaitForSeconds(0.02f);
+        Vector3 pom = transform.position;
+        pom.x -= 0.3f;
+        Instantiate(projectile, pom, Quaternion.identity);
+        yield return new WaitForSeconds(0.1f);
         animator.SetBool("isShooting", false);
         
     }

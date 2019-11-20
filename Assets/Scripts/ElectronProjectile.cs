@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ElectronProjectile : MonoBehaviour
 {
-    public float speed;
+    private float speed = 10.0f;
     private Transform player;
     private Vector2 target;
     // Start is called before the first frame update

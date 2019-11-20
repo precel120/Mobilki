@@ -55,11 +55,6 @@ public class Delta : Enemy
                 movingRight = true;
             }
         }
-       
-        if(head.IsTouchingLayers(LayerMask.GetMask("Player")))
-        {
-            takeDamage(10);
-        }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -68,6 +63,17 @@ public class Delta : Enemy
         {
             collision.gameObject.GetComponent<PlayerHealth>().takeDamage(10);
             StartCoroutine(onPlayerHit());
+        }
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.gameObject.tag == "Player")
+        {
+            takeDamage(10);
+            collision.gameObject.GetComponent<PlayerMov>().canJump = false;
+            collision.gameObject.GetComponent<Rigidbody2D>().AddForce(new Vector2(0, 1400));
+            collision.gameObject.GetComponent<PlayerMov>().canJump = true;
         }
     }
 
