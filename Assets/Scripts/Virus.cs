@@ -5,17 +5,20 @@ using UnityEngine;
 public class Virus : Enemy
 {
     private Rigidbody2D rigidbody;
+    private bool movingRight = false;
+    public float speed;
     // Start is called before the first frame update
     void Start()
     {
+        Health = startHealth;
         rigidbody = gameObject.GetComponent<Rigidbody2D>();
+        StartCoroutine(JumpLogic());
     }
 
     // Update is called once per frame
     void Update()
     {
-        StartCoroutine(JumpLogic());
-        //rigidbody.AddForce(new Vector2(0, 1200));
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -39,14 +42,26 @@ public class Virus : Enemy
 
     IEnumerator JumpLogic()
     {
-        float minWaitTime = 5f;
-        float maxWaitTime = 10f;
+        float minWaitTime = 1f;
+        float maxWaitTime = 5f;
 
         while (true)
         {
             yield return new WaitForSeconds(Random.Range(minWaitTime,maxWaitTime));
             if (Health <= 0) break;
-            rigidbody.AddForce(new Vector2(0, 1200));
+
+            if (movingRight)
+            {
+                transform.Rotate(0f, 180f, 0f);
+                rigidbody.AddForce(new Vector2(Random.Range(150, 300), 700));
+                movingRight = false;
+            }
+            else
+            {
+                transform.Rotate(0f, 180f, 0f);
+                rigidbody.AddForce(new Vector2(Random.Range(-150, -300), 700));
+                movingRight = true;
+            }
         }
     }
 }

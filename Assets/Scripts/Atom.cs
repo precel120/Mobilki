@@ -18,6 +18,7 @@ public class Atom : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        Health = startHealth;
         player = GameObject.FindGameObjectWithTag("Player").transform;
         timeBtwShots = startTimeBtwShots;
         head = gameObject.GetComponent<BoxCollider2D>();

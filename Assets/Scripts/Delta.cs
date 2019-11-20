@@ -12,6 +12,7 @@ public class Delta : Enemy
     // Start is called before the first frame update
     void Start()
     {
+        Health = startHealth;
         transform.Rotate(0f, 180f, 0f);
         head = gameObject.GetComponent<BoxCollider2D>();
     }

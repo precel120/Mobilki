@@ -96,6 +96,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1ebbb425e9c315541833054399807a6a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  healthUI: {fileID: 0}
   restartButton: {fileID: 0}
 --- !u!114 &3251930237340008800
 MonoBehaviour:
@@ -109,7 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4293dd9d9d7762b45bb88c49a91c19a8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Speed: 5
+  Speed: 4
+  canJump: 0
+  JumpHeight: 1000
   joystick: {fileID: 0}
 --- !u!61 &3251930237340008807
 BoxCollider2D:
