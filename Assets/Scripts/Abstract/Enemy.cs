@@ -22,13 +22,9 @@ public class Enemy : MonoBehaviour
     public void takeDamage(int amount)
     {
         Health -= amount;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.gameObject.tag == "Player")
+        if (Health <= 0)
         {
-            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(3);
+            Destroy(gameObject);
         }
     }
 }

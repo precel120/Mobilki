@@ -7,11 +7,14 @@ public class PlayerHealth : MonoBehaviour
     private bool isInvincible;
     private int health;
     public int Health { get { return health; } set { health = value; } }
+
+    public GameObject restartButton;
     // Start is called before the first frame update
     void Start()
     {
         Health = 30;
         isInvincible = false;
+        restartButton.SetActive(false);
     }
 
     // Update is called once per frame
@@ -25,7 +28,12 @@ public class PlayerHealth : MonoBehaviour
         if (!isInvincible)
         {
             Health -= amount;
-            if (health <= 0) Destroy(gameObject);
+            if (health <= 0)
+            {
+                Destroy(gameObject);
+                restartButton.SetActive(true);
+            }
+                
         }
     }
 
