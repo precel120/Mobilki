@@ -11,12 +11,15 @@ public class PlayerMov : MonoBehaviour
     private int jumpCounter;
     public Joystick joystick;
     private Rigidbody2D rigidbody2D;
+    private BoxCollider2D playerCollider;
+
     // Start is called before the first frame update
     void Start()
     {
         faceRight = true;
         canJump = true;
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
+        playerCollider = gameObject.GetComponent<BoxCollider2D>();
     }
 
     // Update is called once per frame
@@ -25,8 +28,17 @@ public class PlayerMov : MonoBehaviour
         float horizontal = joystick.Horizontal * Speed;
         Move(horizontal);
         Flip(horizontal);
-        if (CrossPlatformInputManager.GetButtonDown("Jump") && canJump){
-            Jump();
+
+        if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
+        {
+            if (CrossPlatformInputManager.GetButtonDown("Jump") && canJump){
+                Jump();
+            }
+        }
+
+        if(CrossPlatformInputManager.GetButtonDown("Jump"))
+        {
+            
         }
     }
 

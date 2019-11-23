@@ -9,6 +9,8 @@ TagManager:
   - Ground
   - EndGame
   - GameOver
+  - Virus
+  - PlayerProjectile
   layers:
   - Default
   - TransparentFX
@@ -19,7 +21,7 @@ TagManager:
   - 
   - 
   - Player
-  - 
+  - Ground
   - 
   - 
   - 

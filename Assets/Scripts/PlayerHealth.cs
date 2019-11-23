@@ -80,19 +80,19 @@ public class PlayerHealth : MonoBehaviour
     {
         playerVisibility.enabled = false;
         yield return new WaitForSeconds(1f);
-        endGameText.text = "Niestety, nie dotarłeś do końca studiów";
+        endGameText.text = "Unfortunately, you didn't manage to graduate";
         yield return new WaitForSeconds(2f);
-        endGameText.text = "Czy chcesz powtórzyć kolejną edycję?";
+        endGameText.text = "Do you want to try again?";
         restartButton.SetActive(true);
     }
 
     private IEnumerator gameWon()
     {
         yield return new WaitForSeconds(0.5f);
-        endGameText.text = "Gratulacje! Udało Ci się zabić i skończyć ten jebany żywot";
+        endGameText.text = "Cogratulations! You've made it past the first semester";
         yield return new WaitForSeconds(2f);
         Destroy(gameObject);
-        endGameText.text = "Chcesz dostać depresji jeszcze raz?";
+        endGameText.text = "Do you want to reapeat it?";
         restartButton.SetActive(true);
     }
 
