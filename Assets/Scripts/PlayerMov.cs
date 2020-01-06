@@ -35,11 +35,6 @@ public class PlayerMov : MonoBehaviour
                 Jump();
             }
         }
-
-        if(CrossPlatformInputManager.GetButtonDown("Jump"))
-        {
-            
-        }
     }
 
 

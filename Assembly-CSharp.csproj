@@ -150,6 +150,7 @@
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\TiltInput.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\TouchPad.cs" />
     <Compile Include="Assets\Imports\Standard Assets\CrossPlatformInput\Scripts\VirtualInput.cs" />
+    <Compile Include="Assets\PlayerProjectile.cs" />
     <Compile Include="Assets\Scripts\Abstract\Enemy.cs" />
     <Compile Include="Assets\Scripts\Atom.cs" />
     <Compile Include="Assets\Scripts\Delta.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Assets\Scripts\PDF.cs" />
     <Compile Include="Assets\Scripts\PlayerHealth.cs" />
     <Compile Include="Assets\Scripts\PlayerMov.cs" />
+    <Compile Include="Assets\Scripts\PlayerShooting.cs" />
     <Compile Include="Assets\Scripts\RedBull.cs" />
     <Compile Include="Assets\Scripts\RestartButton.cs" />
     <Compile Include="Assets\Scripts\Virus.cs" />

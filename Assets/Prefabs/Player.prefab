@@ -4753,6 +4753,36 @@ ParticleSystemRenderer:
   m_Mesh2: {fileID: 0}
   m_Mesh3: {fileID: 0}
   m_MaskInteraction: 0
+--- !u!1 &2142105108
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2142105109}
+  m_Layer: 8
+  m_Name: FireSpot
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2142105109
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2142105108}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 2.21, y: -0.48, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 3251930237340008803}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &3251930237340008805
 GameObject:
   m_ObjectHideFlags: 0
@@ -4767,6 +4797,7 @@ GameObject:
   - component: {fileID: 3251930237340008800}
   - component: {fileID: 3251930237340008807}
   - component: {fileID: 3251930237340008806}
+  - component: {fileID: 263513190}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4786,6 +4817,7 @@ Transform:
   m_LocalScale: {x: 0.5, y: 0.5, z: 1}
   m_Children:
   - {fileID: 1161649809}
+  - {fileID: 2142105109}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -4918,3 +4950,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &263513190
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251930237340008805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 53fe1e78ab6f4ed4b998908c8a8e6af3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  fireSpot: {fileID: 2142105109}
+  pencil: {fileID: 1598193162270101285, guid: a3f16281f49c9b4469432d6d1506ac55, type: 3}
+  ruler: {fileID: 108949374196225243, guid: acde8efb37afdf3479e31bf67cdbc1bd, type: 3}
+  canShoot: 0

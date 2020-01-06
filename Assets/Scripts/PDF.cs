@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PDF : MonoBehaviour
 {
-    public int amount;
+    public PlayerShooting playerShooting;
     // Start is called before the first frame update
     void Start()
     {
@@ -16,11 +16,11 @@ public class PDF : MonoBehaviour
     {
         
     }
-
-    private void OnCollisionEnter2D(Collision2D collision)
+    private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Player")
         {
+            playerShooting.canShoot = true;
             Destroy(gameObject);
         }
     }
