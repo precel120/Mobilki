@@ -12,6 +12,7 @@ public class PlayerMov : MonoBehaviour
     public Joystick joystick;
     private Rigidbody2D rigidbody2D;
     private BoxCollider2D playerCollider;
+    private Animator animator;
 
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class PlayerMov : MonoBehaviour
         canJump = true;
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
         playerCollider = gameObject.GetComponent<BoxCollider2D>();
+        animator = GetComponent<Animator>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,7 @@ public class PlayerMov : MonoBehaviour
         if(playerCollider.IsTouchingLayers(LayerMask.GetMask("Ground")))
         {
             if (CrossPlatformInputManager.GetButtonDown("Jump") && canJump){
-                Jump();
+                StartCoroutine(Jump());
             }
         }
     }
@@ -41,6 +43,7 @@ public class PlayerMov : MonoBehaviour
     void Move(float horizontal)
     {
         rigidbody2D.velocity = new Vector2(horizontal * Speed, rigidbody2D.velocity.y);
+        animator.SetFloat("Walk", Mathf.Abs(horizontal));
     }
 
 
@@ -54,8 +57,13 @@ public class PlayerMov : MonoBehaviour
         }
     }
 
-    void Jump()
+    IEnumerator Jump()
     {
+        animator.SetBool("Jump", true);
         rigidbody2D.AddForce(Vector2.up * JumpHeight);
+        yield return new WaitForSeconds(0.45f);
+        animator.SetBool("Jump", false);
     }
+
+
 }
