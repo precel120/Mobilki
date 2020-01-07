@@ -32,6 +32,11 @@ public class ElectronProjectile : MonoBehaviour
             player.GetComponent<PlayerHealth>().takeDamage(15);
             Destroy(gameObject);
         }
+
+        if(collision.gameObject.tag == "Ground")
+        {
+            Destroy(gameObject);
+        }
     }
 
 }

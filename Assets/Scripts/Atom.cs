@@ -7,6 +7,7 @@ public class Atom : Enemy
     public float speed;
     public float stoppingDistance;
     public float retreatDistance;
+    public float playerDistance = 25.0f;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -31,7 +32,7 @@ public class Atom : Enemy
     {
         if (!player.GetComponent<PlayerHealth>().isDead)
         {
-            if (Vector2.Distance(transform.position, player.position) < 35.0f)
+            if (Vector2.Distance(transform.position, player.position) < playerDistance)
             {
                 if (Vector2.Distance(transform.position, player.position) > stoppingDistance)
                 {

@@ -11,7 +11,7 @@ public class PlayerMov : MonoBehaviour
     private int jumpCounter;
     public Joystick joystick;
     private Rigidbody2D rigidbody2D;
-    private BoxCollider2D playerCollider;
+    private CapsuleCollider2D playerCollider;
     private Animator animator;
 
     // Start is called before the first frame update
@@ -20,7 +20,7 @@ public class PlayerMov : MonoBehaviour
         faceRight = true;
         canJump = true;
         rigidbody2D = gameObject.GetComponent<Rigidbody2D>();
-        playerCollider = gameObject.GetComponent<BoxCollider2D>();
+        playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         animator = GetComponent<Animator>();
     }
 
@@ -65,5 +65,18 @@ public class PlayerMov : MonoBehaviour
         animator.SetBool("Jump", false);
     }
 
+    private void OnCollisionEnter2D(Collision2D other) {
+        if(other.gameObject.tag == "Platform")
+        {
+            this.transform.parent = other.transform;
+        }
+    }
+
+    private void OnCollisionExit2D(Collision2D other) {
+         if(other.gameObject.tag == "Platform")
+        {
+            this.transform.parent = null;
+        }
+    }
 
 }

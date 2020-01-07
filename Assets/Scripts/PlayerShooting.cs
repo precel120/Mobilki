@@ -9,7 +9,7 @@ public class PlayerShooting : MonoBehaviour
     public GameObject pencil, ruler;
     private float fireCooldown, fireCooldownDuration = 0.0f;
     public bool canShoot;
-    private float shootTimer = 0.0f;
+    public int bulletAmount;
 
     // Start is called before the first frame update
     void Start()
@@ -23,8 +23,7 @@ public class PlayerShooting : MonoBehaviour
     {
         if (canShoot)
         {
-            shootTimer += Time.deltaTime;
-            if (shootTimer >= 3f)
+            if (bulletAmount == 0)
             {
                 canShoot = false;
             }
@@ -43,7 +42,13 @@ public class PlayerShooting : MonoBehaviour
                     Instantiate(pencil, fireSpot.position, fireSpot.rotation);
                 }
                 fireCooldownDuration = Time.time + fireCooldown;
+                bulletAmount--;
             }
         }
+    }
+
+    public void setBullet(int amount)
+    {
+        bulletAmount = amount;
     }
 }

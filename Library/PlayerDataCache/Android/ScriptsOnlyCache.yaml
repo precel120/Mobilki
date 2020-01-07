@@ -10,10 +10,15 @@ ScriptsOnlyBuild:
     - Delta
     - ElectronProjectile
     - FixedJoystick
+    - Navigation
+    - PDF
     - PlayerHealth
     - PlayerMov
+    - PlayerProjectile
+    - PlayerShooting
     - RedBull
     - RestartButton
+    - RotatingPlatform
     - UnityStandardAssets.CrossPlatformInput.ButtonHandler
     - Virus
     Unity.2D.Sprite.Editor.dll:
@@ -31,8 +36,10 @@ ScriptsOnlyBuild:
     UnityEditor.Graphs.dll:
     - UnityEditor.Graphs.AnimationBlendTree.Graph
     - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.AnyStateNode
     - UnityEditor.Graphs.AnimationStateMachine.Graph
     - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.StateNode
     - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
@@ -47,6 +54,53 @@ ScriptsOnlyBuild:
     - UnityEngine.UI.Image
     - UnityEngine.UI.Text
   sceneClasses:
+    Assets/Scenes/Menu.unity:
+    - Class: 1
+      Script: {instanceID: 0}
+    - Class: 4
+      Script: {instanceID: 0}
+    - Class: 20
+      Script: {instanceID: 0}
+    - Class: 21
+      Script: {instanceID: 0}
+    - Class: 28
+      Script: {instanceID: 0}
+    - Class: 48
+      Script: {instanceID: 0}
+    - Class: 81
+      Script: {instanceID: 0}
+    - Class: 104
+      Script: {instanceID: 0}
+    - Class: 114
+      Script: {instanceID: 9676}
+    - Class: 114
+      Script: {instanceID: 9858}
+    - Class: 114
+      Script: {instanceID: 9904}
+    - Class: 114
+      Script: {instanceID: 10034}
+    - Class: 114
+      Script: {instanceID: 10346}
+    - Class: 114
+      Script: {instanceID: 10800}
+    - Class: 114
+      Script: {instanceID: 11362}
+    - Class: 114
+      Script: {instanceID: 11776}
+    - Class: 115
+      Script: {instanceID: 0}
+    - Class: 128
+      Script: {instanceID: 0}
+    - Class: 157
+      Script: {instanceID: 0}
+    - Class: 213
+      Script: {instanceID: 0}
+    - Class: 222
+      Script: {instanceID: 0}
+    - Class: 223
+      Script: {instanceID: 0}
+    - Class: 224
+      Script: {instanceID: 0}
     Assets/Scenes/Mobilki.unity:
     - Class: 1
       Script: {instanceID: 0}
@@ -70,6 +124,8 @@ ScriptsOnlyBuild:
       Script: {instanceID: 0}
     - Class: 66
       Script: {instanceID: 0}
+    - Class: 70
+      Script: {instanceID: 0}
     - Class: 74
       Script: {instanceID: 0}
     - Class: 81
@@ -89,45 +145,53 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 9904}
     - Class: 114
-      Script: {instanceID: 10344}
+      Script: {instanceID: 10346}
     - Class: 114
-      Script: {instanceID: 10368}
+      Script: {instanceID: 10370}
     - Class: 114
-      Script: {instanceID: 10386}
+      Script: {instanceID: 10388}
     - Class: 114
-      Script: {instanceID: 10480}
+      Script: {instanceID: 10420}
     - Class: 114
-      Script: {instanceID: 10572}
+      Script: {instanceID: 10482}
     - Class: 114
       Script: {instanceID: 10574}
     - Class: 114
-      Script: {instanceID: 10682}
+      Script: {instanceID: 10576}
     - Class: 114
-      Script: {instanceID: 10702}
+      Script: {instanceID: 10684}
     - Class: 114
-      Script: {instanceID: 10796}
+      Script: {instanceID: 10704}
     - Class: 114
-      Script: {instanceID: 11072}
+      Script: {instanceID: 10766}
     - Class: 114
-      Script: {instanceID: 11134}
+      Script: {instanceID: 10800}
+    - Class: 114
+      Script: {instanceID: 11076}
     - Class: 114
       Script: {instanceID: 11138}
     - Class: 114
-      Script: {instanceID: 11186}
+      Script: {instanceID: 11142}
     - Class: 114
-      Script: {instanceID: 11348}
+      Script: {instanceID: 11190}
     - Class: 114
-      Script: {instanceID: 11358}
+      Script: {instanceID: 11352}
     - Class: 114
-      Script: {instanceID: 11468}
+      Script: {instanceID: 11362}
     - Class: 114
-      Script: {instanceID: 11530}
+      Script: {instanceID: 11472}
     - Class: 114
-      Script: {instanceID: 11724}
+      Script: {instanceID: 11534}
     - Class: 114
-      Script: {instanceID: 11740}
+      Script: {instanceID: 11658}
     - Class: 114
-      Script: {instanceID: 11770}
+      Script: {instanceID: 11730}
+    - Class: 114
+      Script: {instanceID: 11746}
+    - Class: 114
+      Script: {instanceID: 11776}
+    - Class: 114
+      Script: {instanceID: 31130}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -305,6 +369,12 @@ ScriptsOnlyBuild:
     className: SignalAsset
   - hash:
       serializedVersion: 2
+      Hash: ff32958614b9c413ef9f5a5fd96b5b89
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Navigation
+  - hash:
+      serializedVersion: 2
       Hash: 0dbc3be398b4869a5c8d0d8481ee402c
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -443,7 +513,7 @@ ScriptsOnlyBuild:
     className: Joystick
   - hash:
       serializedVersion: 2
-      Hash: 05eb941329627850e13408587648977b
+      Hash: 71066131d91cd1046e79905d12abfb26
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PDF
@@ -461,7 +531,7 @@ ScriptsOnlyBuild:
     className: DEMO_CreateWindowShareLink
   - hash:
       serializedVersion: 2
-      Hash: 7002a0c0d6c7c3114f59dd22675441bf
+      Hash: 8cdd7dfec91ebad79a6250518a1c139c
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Atom
@@ -585,6 +655,12 @@ ScriptsOnlyBuild:
     assemblyName: Assembly-CSharp.dll
     namespaceName: Cinemachine
     className: CinemachinePath
+  - hash:
+      serializedVersion: 2
+      Hash: 00acdd3a1afd3d7ba07fe08f7c00aad5
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerShooting
   - hash:
       serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
@@ -863,6 +939,12 @@ ScriptsOnlyBuild:
     className: TMP_StyleSheet
   - hash:
       serializedVersion: 2
+      Hash: 13f8f373b951cbaf0f891949929b196a
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: PlayerProjectile
+  - hash:
+      serializedVersion: 2
       Hash: df434544c9f7b33d1cc7e635b180d279
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -993,7 +1075,14 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 77555faba219730381331c40aa5d7267
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: RotatingPlatform
   platform: 13
   scenePathNames:
+  - Assets/Scenes/Menu.unity
   - Assets/Scenes/Mobilki.unity
-  playerPath: C:/Users/Jasiek/Desktop/WSM/Mobilki-master/Mobilki.apk
+  playerPath: C:/Users/Jasiek/Desktop/WSM/Mobilki/Mobilki.apk

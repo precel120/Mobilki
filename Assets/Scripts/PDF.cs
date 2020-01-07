@@ -21,6 +21,7 @@ public class PDF : MonoBehaviour
         if (collision.gameObject.tag == "Player")
         {
             playerShooting.canShoot = true;
+            playerShooting.setBullet(5);
             Destroy(gameObject);
         }
     }
