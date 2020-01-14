@@ -25,7 +25,7 @@ public class Delta : Enemy
 
         transform.Translate(Vector2.left * speed * Time.deltaTime);
 
-        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 2f);
+        RaycastHit2D groundInfo = Physics2D.Raycast(groundDetection.position, Vector2.down, 0.5f);
         RaycastHit2D wallInfo = Physics2D.Raycast(groundDetection.position, Vector2.left, 0.1f, layerMask);
 
         if(!groundInfo.collider)
@@ -59,7 +59,7 @@ public class Delta : Enemy
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if(collision.gameObject.tag == "Player")
+        if(collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerHealth>().isDead == false)
         {
             collision.gameObject.GetComponent<PlayerHealth>().takeDamage(10);
             StartCoroutine(onPlayerHit());

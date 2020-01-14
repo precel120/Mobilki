@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using Cinemachine;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -11,6 +12,7 @@ public class PlayerHealth : MonoBehaviour
     public ParticleSystem invincibility;
     public bool isDead = false;
     private SpriteRenderer playerVisibility;
+    private CapsuleCollider2D playerCollider;
 
     private int health;
     public int Health { get { return health; } set { health = value; } }
@@ -19,6 +21,7 @@ public class PlayerHealth : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         playerVisibility = gameObject.GetComponent<SpriteRenderer>();
         Health = 30;
         isInvincible = false;
@@ -38,6 +41,7 @@ public class PlayerHealth : MonoBehaviour
             Health -= amount;
             if (health <= 0)
             {
+                Health = 0;
                 isDead = true;
                 StartCoroutine(gameOver());
             }
@@ -71,7 +75,7 @@ public class PlayerHealth : MonoBehaviour
     {
         invincibility.Play();
         isInvincible = true;
-        yield return new WaitForSeconds(4f);
+        yield return new WaitForSeconds(8f);
         isInvincible = false;
         invincibility.Stop();
     }
@@ -79,6 +83,8 @@ public class PlayerHealth : MonoBehaviour
     private IEnumerator gameOver()
     {
         playerVisibility.enabled = false;
+        playerCollider.enabled = false;
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CinemachineBrain>().enabled = false;
         yield return new WaitForSeconds(1f);
         endGameText.text = "Unfortunately, you didn't manage to graduate";
         yield return new WaitForSeconds(2f);
