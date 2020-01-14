@@ -10,6 +10,7 @@ public class PlayerShooting : MonoBehaviour
     private float fireCooldown, fireCooldownDuration = 0.0f;
     public bool canShoot;
     public int bulletAmount;
+    public GameObject crosshair;
 
     // Start is called before the first frame update
     void Start()
@@ -26,6 +27,7 @@ public class PlayerShooting : MonoBehaviour
             if (bulletAmount == 0)
             {
                 canShoot = false;
+                crosshair.SetActive(false);
             }
         }
         if (Time.time > fireCooldownDuration)
