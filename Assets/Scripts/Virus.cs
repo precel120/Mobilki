@@ -25,7 +25,7 @@ public class Virus : Enemy
     {
         if(collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(3);
+            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(2);
         }
     }
 

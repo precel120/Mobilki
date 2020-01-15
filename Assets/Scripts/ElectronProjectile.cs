@@ -29,7 +29,7 @@ public class ElectronProjectile : MonoBehaviour
     {
         if(collision.gameObject.tag == "Player")
         {
-            player.GetComponent<PlayerHealth>().takeDamage(15);
+            player.GetComponent<PlayerHealth>().takeDamage(1);
             Destroy(gameObject);
         }
 

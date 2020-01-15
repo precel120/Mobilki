@@ -12,6 +12,7 @@ TagManager:
   - Virus
   - PlayerProjectile
   - Platform
+  - EndTutorial
   layers:
   - Default
   - TransparentFX

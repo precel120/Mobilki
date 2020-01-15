@@ -22,6 +22,7 @@ public class PDF : MonoBehaviour
         {
             playerShooting.canShoot = true;
             playerShooting.setBullet(3);
+            playerShooting.crosshair.SetActive(true);
             Destroy(gameObject);
         }
     }

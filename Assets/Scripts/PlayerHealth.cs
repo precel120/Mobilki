@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Cinemachine;
+using UnityEngine.SceneManagement;
 
 public class PlayerHealth : MonoBehaviour
 {
@@ -23,7 +24,7 @@ public class PlayerHealth : MonoBehaviour
     {
         playerCollider = gameObject.GetComponent<CapsuleCollider2D>();
         playerVisibility = gameObject.GetComponent<SpriteRenderer>();
-        Health = 30;
+        Health = 0;
         isInvincible = false;
         restartButton.SetActive(false);
     }
@@ -38,25 +39,30 @@ public class PlayerHealth : MonoBehaviour
     {
         if (!isInvincible)
         {
-            Health -= amount;
-            if (health <= 0)
+            if (health - amount <= 0)
             {
                 Health = 0;
-                isDead = true;
-                StartCoroutine(gameOver());
-            }
+            }else Health -= amount;
+
         }
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if(collision.gameObject.tag == "EndGame")
+        if(collision.gameObject.tag == "EndGame" && Health >= 15)
         {
             StartCoroutine(gameWon());
+        }else if(collision.gameObject.tag == "EndGame" && Health < 15)
+        {
+            StartCoroutine(notEnoughECTS());
         }
         if(collision.gameObject.tag == "GameOver")
         {
             StartCoroutine(gameOver());
+        }
+        if (collision.gameObject.CompareTag("EndTutorial"))
+        {
+            StartCoroutine(endTutorial());
         }
     }
 
@@ -101,5 +107,22 @@ public class PlayerHealth : MonoBehaviour
         endGameText.text = "Do you want to reapeat it?";
         restartButton.SetActive(true);
     }
+    private IEnumerator endTutorial()
+    {
+        yield return new WaitForSeconds(0.5f);
+        endGameText.text = "Cogratulations! You've finished the tutorial!";
+        yield return new WaitForSeconds(4f);
+        Destroy(gameObject);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+    }
 
+    private IEnumerator notEnoughECTS()
+    {
+        GameObject.FindGameObjectWithTag("MainCamera").GetComponent<CinemachineBrain>().enabled = false;
+        yield return new WaitForSeconds(1f);
+        endGameText.text = "Unfortunately, you didn't manage to graduate, u didn't get enough ECTS.";
+        yield return new WaitForSeconds(3f);
+        endGameText.text = "Do you want to try again?";
+        restartButton.SetActive(true);
+    }
 }

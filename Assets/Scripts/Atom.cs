@@ -67,7 +67,7 @@ public class Atom : Enemy
     {
         if (collision.gameObject.tag == "Player")
         {
-            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(10);
+            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(2);
         }
     }
 

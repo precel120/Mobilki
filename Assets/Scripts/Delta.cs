@@ -61,7 +61,7 @@ public class Delta : Enemy
     {
         if(collision.gameObject.tag == "Player" && collision.gameObject.GetComponent<PlayerHealth>().isDead == false)
         {
-            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(10);
+            collision.gameObject.GetComponent<PlayerHealth>().takeDamage(1);
             StartCoroutine(onPlayerHit());
         }
     }

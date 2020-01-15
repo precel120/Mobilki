@@ -4798,6 +4798,8 @@ GameObject:
   - component: {fileID: 3251930237340008807}
   - component: {fileID: 3251930237340008806}
   - component: {fileID: 263513190}
+  - component: {fileID: 51214306}
+  - component: {fileID: 51214300}
   m_Layer: 8
   m_Name: Player
   m_TagString: Player
@@ -4910,7 +4912,7 @@ BoxCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3251930237340008805}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -4966,3 +4968,40 @@ MonoBehaviour:
   pencil: {fileID: 1598193162270101285, guid: a3f16281f49c9b4469432d6d1506ac55, type: 3}
   ruler: {fileID: 108949374196225243, guid: acde8efb37afdf3479e31bf67cdbc1bd, type: 3}
   canShoot: 0
+  bulletAmount: 0
+  crosshair: {fileID: 0}
+--- !u!70 &51214306
+CapsuleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251930237340008805}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.123283386, y: -0.12472153}
+  m_Size: {x: 1.9268951, y: 4.783455}
+  m_Direction: 0
+--- !u!95 &51214300
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3251930237340008805}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 3bf292fb5691cb44593b7d65096efbed, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0

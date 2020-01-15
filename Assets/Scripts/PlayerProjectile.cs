@@ -28,5 +28,9 @@ public class PlayerProjectile : MonoBehaviour
             collision.gameObject.GetComponent<Enemy>().takeDamage(20);
             Destroy(gameObject);
         }
+        if (collision.gameObject.CompareTag("Ground"))
+        {
+            Destroy(gameObject);
+        }
     }
 }
